@@ -1,0 +1,401 @@
+@import url("framework.css");
+
+/* CSS for body background */
+
+
+/* Header
+--------------------------------------------------------------------------------------------------------------- */
+
+#header #logo img {
+  height:110px;
+  width:1200px;
+}
+
+#header #logo p {
+	margin: 0;
+	padding: 0;
+}
+
+#header form {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+#header input,
+#header button {
+	display: block;
+	height: 30px;
+	border: none;
+}
+
+#header input {
+	width: 100%;
+	min-width: 250px;
+	padding: 5px 40px 5px 5px;
+}
+
+#header button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 35px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#header button em {
+	display: none;
+}
+
+/* Add some margin to the buttons */
+nav#mainav ul li button {
+    margin-right: 70px; 
+	gap: 30px; 
+}
+
+
+nav#mainav ul li button a {
+    text-decoration: none;
+    color: inherit; 
+	font-size: 18px;
+}
+
+
+nav#mainav ul li button {
+    padding: 10px 40px;
+    border-radius: 5px;
+    background-color: #a7a081; 
+    border: none; 
+    color: white;
+    cursor: pointer;
+	
+}
+
+nav#mainav ul li button:hover {
+    background-color: #06213F; 
+}
+/* Homepage Slider
+--------------------------------------------------------------------------------------------------------------- */
+#slider {
+	position: relative;
+	overflow: hidden;
+}
+
+#slider .rounded {
+	padding: 9px;
+}
+
+#slider a,
+#slider ul,
+#slider img {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	list-style: none;
+	text-decoration: none;
+}
+
+#slide-wrapper,
+#slide-wrapper figure,
+#slide-wrapper img {
+	display: block;
+	overflow: hidden;
+}
+
+#slide-wrapper figure,
+#slide-wrapper figure img {
+	position: relative;
+}
+
+#slide-wrapper figure figcaption {
+	display: block;
+	position: absolute;
+	top: 50px;
+	right: 25px;
+	width: 350px;
+	height: 245px;
+	margin: 0;
+	padding: 30px;
+	box-sizing: border-box;
+	overflow: hidden;
+
+}
+
+#slide-wrapper figure figcaption p {
+	object-fit: cover;
+}
+#slide-wrapper figure figcaption img {
+	margin-left: 0.7rem;
+	width: 260px;
+	height:195px;
+}
+#slider #slide-tabs {
+	display: block;
+	overflow: hidden;
+	font-size: 12px;
+	
+
+}
+
+#slider #slide-tabs li {
+	display: inline-block;
+	float: left;
+}
+
+#slider #slide-tabs li a {
+	display: block;
+	width: 216px;
+	min-height: 60px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid;
+	border-width: 0 0 1px 1px;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#slider #slide-tabs li:last-child a {
+	border-width: 0 1px 1px 1px;
+}
+
+/* Navigation
+--------------------------------------------------------------------------------------------------------------- */
+nav ul,
+nav ol {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#mainav .drop::after,
+#mainav li li .drop::after,
+#breadcrumb li a::after,
+.sidebar nav a::after {
+	position: absolute;
+	font-family: "FontAwesome";
+	font-size: 10px;
+	line-height: 10px;
+}
+
+/* Top Navigation */
+#mainav {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+#mainav ul ul {
+	z-index: 9999;
+	position: absolute;
+	width: 160px;
+}
+
+#mainav ul ul ul {
+	left: 160px;
+	top: 0;
+}
+
+#mainav li {
+	display: inline-block;
+	position: relative;
+	margin: 0 30px 0 0;
+	padding: 0;
+}
+
+#mainav li:last-child {
+	margin-right: 0;
+}
+
+#mainav li li {
+	width: 100%;
+	margin: 0;
+	text-align: left;
+	text-transform: none;
+}
+
+#mainav li a {
+	display: block;
+	padding: 0;
+}
+
+#mainav li li a {
+	border: solid;
+	border-width: 0 0 1px 0;
+}
+
+#mainav li li:last-child a {
+	border-bottom: none;
+}
+
+#mainav .drop {
+	padding-left: 15px;
+}
+
+#mainav li li a,
+#mainav li li .drop {
+	display: block;
+	margin: 0;
+	padding: 10px 15px;
+}
+
+#mainav .drop::after,
+#mainav li li .drop::after {
+	content: "\f0d7";
+}
+
+#mainav .drop::after {
+	top: 5px;
+	left: 5px;
+}
+
+#mainav li li .drop::after {
+	top: 15px;
+	left: 5px;
+}
+
+#mainav ul ul {
+	display: none;
+}
+
+#mainav ul li:hover>ul {
+	display: block;
+}
+
+#mainav form {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#mainav form select,
+#mainav form select option {
+	display: block;
+	cursor: pointer;
+	outline: none;
+}
+
+#mainav form select {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid;
+}
+
+#mainav form select option {
+	margin: 5px;
+	padding: 0;
+	border: none;
+}
+
+
+/* Rounded Corners
+--------------------------------------------------------------------------------------------------------------- */
+.rounded,
+input,
+button,
+textarea,
+#header input,
+#footer input,
+#slide-wrapper figcaption,
+.avatar,
+#comments li,
+.faico a,
+#twitter,
+.pagination a,
+.pagination strong {
+	border-radius: 8px;
+}
+
+#header button,
+#footer button {
+	border-radius: 0 8px 8px 0;
+}
+
+#mainav li li:last-child a {
+	border-radius: 0 0 8px 8px;
+}
+
+#mainav li li:first-child a,
+#slide-wrapper figure img,
+#slide-wrapper figure .view:hover::before {
+	border-radius: 8px 8px 0 0;
+}
+
+#slider #slide-tabs li:first-child a {
+	border-radius: 0 0 0 8px;
+}
+
+#slider #slide-tabs li:last-child a {
+	border-radius: 0 0 8px 0;
+}
+
+
+
+/* Colours
+--------------------------------------------------------------------------------------------------------------- */
+
+
+a {
+	color: #546168;
+}
+
+hr,
+.borderedbox {
+	border-color: #D7D7D7;
+}
+
+label span {
+	color: #FF0000;
+	background-color: inherit;
+}
+
+.rounded {
+	color: inherit;
+	background-color:#50C4ED;
+}
+
+/* adjust color here */
+
+
+/* Homepage Slider */
+#slide-wrapper figure figcaption {
+	background-color: rgba(255, 255, 255, 0.914);
+}
+
+#slide-wrapper figure figcaption:hover {
+	background-color:#06213F;
+}
+
+#slider #slide-tabs li a {
+	color: rgb(64, 0, 0);
+	background-color: #DEDACB;
+	border-color: #666666;
+}
+
+#slider #slide-tabs li a:hover,
+#slider #slide-tabs li.active a {
+	color: #FFFFFF;
+	background-color: #06213F;
+}
+
+/*footer section*/
+
+.footer .container1{
+	margin-top:90px;
+}
+
+.footer p {
+    color: #ff0000;
+	font-size: 28px;
+}
+
+.copyright {
+   
+	text-align: center;
+}
+.wrapper {
+		max-width: 1100px;
+	}
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mini Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="CSS/layout.css" rel="stylesheet" type="text/css" media="all">
+  <style>
+    body {
+      background-image: url(images/land.avif);
+      background-size: cover; 
+      background-position: center center; 
+      background-repeat: no-repeat; 
+      height: 71vh; 
+      margin: 0; 
+      font-family: Arial, sans-serif;
+      color: #fff; 
+    }
+
+    /* Style the slide tabs */
+    #slide-tabs {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 20px 0 0;
+      list-style: none;
+      width: 100%; /* Full width to ensure proper alignment */
+    }
+    
+    #slide-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
+      border-radius: 10px;
+      width: 100%; /* Ensure full width */
+      box-sizing: border-box;
+    }
+
+    #slide-tabs li {
+      margin: 0 10px; /* Add margin for spacing between tabs */
+    }
+
+    #slide-tabs li a {
+      display: block;
+      padding: 15px 25px; /* Increased padding for larger buttons */
+      text-align: center;
+      text-decoration: none;
+      background-color: #dedacb;
+      color: rgb(64, 0, 0);
+      border: 1px solid #666666;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 8px; /* Slightly rounded corners */
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 16px; /* Increased font size */
+    }
+
+    #slide-tabs li a:hover,
+    #slide-tabs li a.active {
+      background-color: #06213f;
+      color: #ffffff;
+    }
+
+    button img {
+      width: 70px; /* Adjusted width */
+      height: 50px; /* Height remains the same */
+      transition: transform 0.3s; /* Animation for scaling */
+    }
+
+    button:hover img {
+      transform: scale(1.1); /* Scale up the icon on hover */
+    }
+
+    @media (max-width: 768px) {
+      #slide-tabs {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #slide-tabs li {
+        margin: 5px 0; /* Adjust margin for vertical stacking */
+      }
+
+      #slide-tabs li a {
+        margin: 0; /* Remove horizontal margins */
+        width: 100%; /* Full width on smaller screens */
+        box-sizing: border-box;
+      }
+    }
+  </style>
+  <script>
+    function disableButtons() {
+      // Disable all buttons and links on the page
+      const buttons = document.querySelectorAll('button, a');
+      buttons.forEach(button => {
+        button.disabled = true; // Disable buttons
+        button.style.pointerEvents = 'none'; // Prevent click events for links
+        button.style.opacity = '0.5'; // Make disabled buttons look inactive
+      });
+    }
+
+    function logout() {
+      // Clear any necessary authentication details
+      localStorage.removeItem("faceAuth"); // Adjust this according to your app logic
+
+      // Disable buttons before redirection
+      disableButtons();
+
+      // Redirect to index.html
+      window.location.href = "http://localhost:8087/MiniProject/index.html";
+    }
+  </script>
+</head>
+<body id="top">
+  <div class="wrapper row0"></div>
+
+  <div class="wrapper row1">
+    <header id="header" class="clear">
+      <div id="logo" class="fl_left">
+        <img src="images/logo.webp" alt="Logo">
+      </div>
+      <button 
+        style="background: none; border: none; cursor: pointer; position: absolute; top: 20px; right: 20px;"
+        onclick="logout()">
+        <img src="images/logout.png" alt="Logout"> <!-- Width and height set in CSS -->
+      </button>
+    </header>
+  </div>
+
+  <div class="wrapper">
+    <div id="slider">
+      <div id="slide-wrapper" class="rounded clear">
+        <figure id="slide-1">
+          <a class="view" href="#"><img src="images/gnit.jpg" alt="Main Image"></a>
+          <figcaption>
+            <img src="images/exam.png" alt="Exam Image">
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <ul id="slide-tabs">
+      <li><a href="faculty-management.jsp">Faculty Management</a></li>
+    </ul>
+  </div>
+</body>
+</html>

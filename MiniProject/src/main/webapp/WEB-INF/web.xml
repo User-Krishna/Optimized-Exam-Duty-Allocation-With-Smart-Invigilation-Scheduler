@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         id="WebApp_ID" version="6.0">
+  
+  <display-name>Login_Register</display-name>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <!-- LoginServlet Configuration -->
+  <servlet>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.gnit.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- RegisterServlet Configuration -->
+  <servlet>
+    <display-name>RegisterServlet</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.gnit.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- FacultyServlet Configuration -->
+  <servlet>
+    <display-name>FacultyServlet</display-name>
+    <servlet-name>FacultyServlet</servlet-name>
+    <servlet-class>com.gnit.servlet.FacultyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FacultyServlet</servlet-name>
+    <url-pattern>/FacultyServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- Controller Servlet Configuration -->
+  <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>com.gnit.DatabaseFile.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/Controller</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>FacultyAllocationServlet</servlet-name>
+    <servlet-class>com.gnit.servlet.FacultyAllocationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>FacultyAllocationServlet</servlet-name>
+    <url-pattern>/FacultyAllocationServlet</url-pattern>
+</servlet-mapping>
+
+
+</web-app>
