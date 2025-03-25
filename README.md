@@ -1,102 +1,126 @@
-# Exam Duty Allocation System
+# 🎓 Exam Duty Allocation System
 
-## Overview
-The **Exam Duty Allocation System** is a web-based application designed to automate the process of allocating faculty members for exam invigilation. The system allows HODs and Exam Administrators to log in (using username/password or face recognition) and perform various tasks, such as checking faculty availability, managing faculty details, and sending email notifications regarding exam duties.
-
----
-
-## Features
-- **HOD Login**: Secure login with username/password or face recognition.
-- **Exam Administrator Login**: Similar secure login options.
-- **Faculty Management**: Search, edit, and delete faculty details.
-- **Faculty Availability**: Mark faculty as on leave, busy, or available.
-- **Automated Allocation**: Random allocation of available faculty for invigilation duties.
-- **PDF Report Generation**: Generate detailed reports of faculty availability and allocation.
-- **Email Notifications**: Notify faculty about their assigned duties with automated emails.
+## 📌 Overview
+The **Exam Duty Allocation System** is a web-based application designed to **automate the allocation of faculty members for invigilation duties**. It allows **HODs and Exam Administrators** to log in securely (via **username/password or face recognition**) and efficiently manage faculty availability, duty assignments, and notifications.
 
 ---
 
-## Technology Stack
-- **Backend**: Java Servlets
-- **Frontend**: HTML, CSS, JavaScript
-- **Database**: MySQL
-- **Libraries/Tools**:
-  - OpenCV for face recognition
-  - Apache PDFBox for PDF generation
-- **Server**: Apache Tomcat 10.1.28
+## ✨ Features
+✅ **HOD & Exam Admin Login** – Secure login via username/password or **Face Recognition**.  
+✅ **Faculty Management** – Add, search, edit, and delete faculty records.  
+✅ **Faculty Availability** – Mark faculty as **Available, On Leave, or Busy**.  
+✅ **Automated Allocation** – Smart/randomized allocation of faculty for invigilation duties.  
+✅ **PDF Report Generation** – Generate detailed reports of allocations.  
+✅ **Email Notifications** – Automated emails notify faculty of their assigned duties.  
+
+---
+## 📸 Screenshots & UI Preview
+
+Here are the **screenshots** of the application showcasing various features and UI components.
+
+### 🏠 Index Page
+![Index Page](https://i.imgur.com/9iDLQJo.png)
+
+### 🔐 Login System
+**1️⃣ Login with ID**  
+![Login with ID](https://i.imgur.com/uSXb364.png)
+
+**2️⃣ Login with Face Recognition**  
+![Login with Face](https://i.imgur.com/BvViM4z.png)
+
+**3️⃣ Result after Face Recognition Login**  
+![Face Login Result](https://i.imgur.com/0PbtecU.png)
+
+### 🌍 Landing Page
+![Landing Page](https://i.imgur.com/AAy19ws.png)
+
+### 🏫 Faculty Management
+![Faculty Management](https://i.imgur.com/26Yyo0J.png)
+
+### 📋 Faculty Availability
+![Faculty Availability](https://i.imgur.com/OgVmaEP.png)
+
+### 🔄 Faculty Allocation
+![Faculty Allocation](https://i.imgur.com/ihLHZKh.png)
+
+### 📩 Notification Center
+![Notification Center](https://i.imgur.com/4YNJxw9.png)
+
+### ✉️ Final Email Result
+![Final Email Result](https://i.imgur.com/9hhfprx.png)
+
+## 🛠️ Technology Stack
+| Component      | Technology Used         |
+|---------------|------------------------|
+| **Backend**   | Java Servlets, JSP      |
+| **Frontend**  | HTML, CSS, JavaScript   |
+| **Database**  | MySQL                   |
+| **Face Recognition** | OpenCV         |
+| **PDF Generation** | Apache PDFBox   |
+| **Email Service** | Jakarta Mail      |
+| **Server**    | Apache Tomcat 10.1.28  |
 
 ---
 
-## Technologies Used
+## 📂 Database Structure
 
-- **Backend**: Java, Servlets, JSP
-- **Database**: MySQL
-- **Email**: Jakarta Mail
-- **Frontend**: HTML, CSS, JavaScript
+The system uses two primary **MySQL tables**:
 
-## Database Structure
+1. **`faculty_allocation`** – Stores faculty details (name, assigned room, availability status).  
+2. **`room_details`** – Stores exam room details (block, floor, room number, room code).
 
-The system uses two primary tables in **MySQL**:
+---
 
-1. **`faculty_allocation`**:
-   - Contains faculty details such as name, room allocation, and other metadata.
+## 🚀 How It Works
 
-2. **`room_details`**:
-   - Stores information about available rooms (block, floor, room number, room code).
+### 🏫 Faculty Allocation
+- Faculty members are added and randomly assigned rooms.
+- A **servlet processes faculty data** and allocates them dynamically.
 
-## How It Works
+### 📌 Room Management
+- Pre-defined rooms in the database are dynamically fetched for assignments.
+- Unique room codes ensure proper mapping.
 
-1. **Faculty Allocation**:
-   - Faculty members are added to the system and are randomly assigned rooms.
-   - A servlet processes the faculty data and allocates them to available rooms using a genetic algorithm (if applicable) or a randomization logic.
+### 📧 Email Notification
+- After allocation, **automated emails** are sent to faculty members.
+- Emails include **exam date, room number, block, floor, and additional details**.
 
-2. **Room Management**:
-   - Rooms are pre-defined in the database and can be fetched dynamically to assign faculty.
-   - Room codes (block + floor + room number) ensure unique identification for each room.
+---
 
-3. **Email Notification**:
-   - After allocation, emails are sent to each faculty member with the allocation details.
-   - The email includes exam date, room number, block, floor, and other important details.
+## 📧 Email Configuration (Jakarta Mail)
 
-## Email Configuration
+To configure **email notifications**, follow these steps:
 
-The system uses **Jakarta Mail** to send email notifications to faculty members. To set up email notifications, you need to configure your Gmail SMTP server credentials, including the **secret key**.
-
-### Steps to Configure Gmail Credentials:
-
-1. **Update the NotificationServlet**:
-   - Open the `NotificationServlet.java` file in your project.
-   - Locate the part of the code that handles email sending (likely using `Session.getDefaultInstance()` for mail properties).
-   - Update the Gmail credentials (SMTP settings) with your **Gmail secret key** and other necessary credentials.
+1. **Update the `NotificationServlet.java` file**:
+   - Locate the email configuration section.
+   - Update the **Gmail SMTP settings** with your **App Password**.
 
 2. **Generate Gmail Secret Key**:
-   - If you haven’t done so already, generate an **App Password** for your Gmail account by following these steps:
-     - Go to your **Google Account**: https://myaccount.google.com/
-     - Navigate to **Security**.
-     - Under **App passwords**, generate a password for your application.
-     - Use this generated **App Password** instead of your Gmail account password.
+   - Go to **[Google Account Security](https://myaccount.google.com/)**.
+   - Navigate to **App Passwords** and generate a password.
+   - Use this **App Password** instead of your regular Gmail password.
 
-3. **Update the Email Configuration** in the `NotificationServlet`:
-   - Modify the `email.properties` or the corresponding section in the `NotificationServlet` to use your Gmail SMTP server details:
-   
-   ```java
-   String host = "smtp.gmail.com";
-   String port = "587";  // or 465 if using SSL
-   String username = "your_email@gmail.com";
-   String password = "your_app_password";  // Use the Gmail App Password here
+3. **Modify `NotificationServlet` Configuration**:
 
-   Properties props = new Properties();
-   props.put("mail.smtp.host", host);
-   props.put("mail.smtp.port", port);
-   props.put("mail.smtp.auth", "true");
-   props.put("mail.smtp.starttls.enable", "true");
+```java
+String host = "smtp.gmail.com";
+String port = "587";  // or 465 for SSL
+String username = "your_email@gmail.com";
+String password = "your_app_password";  // Use Gmail App Password
 
-   Session session = Session.getInstance(props, new Authenticator() {
-       @Override
-       protected PasswordAuthentication getPasswordAuthentication() {
-           return new PasswordAuthentication(username, password);
-       }
-   });
+Properties props = new Properties();
+props.put("mail.smtp.host", host);
+props.put("mail.smtp.port", port);
+props.put("mail.smtp.auth", "true");
+props.put("mail.smtp.starttls.enable", "true");
+
+Session session = Session.getInstance(props, new Authenticator() {
+    @Override
+    protected PasswordAuthentication getPasswordAuthentication() {
+        return new PasswordAuthentication(username, password);
+    }
+});
+```
 ## Contributions
 
 We welcome contributions from the community! Whether it's a bug fix, new feature, or improvement, your help is appreciated. Here's how you can contribute:
